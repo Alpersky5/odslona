@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Odsłona</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Odsłona</h1>
+    <p class="haslo-strony">Najpierw rozmowa, potem twarz.</p>
+
+    <!-- Logowanie i rejestracja -->
+    <section id="start" hidden>
+      <form id="logowanie">
+        <h2>Zaloguj się</h2>
+        <input name="login" placeholder="Login" required>
+        <input name="haslo" type="password" placeholder="Hasło" required>
+        <button>Zaloguj</button>
+        <button type="button" class="link" data-pokaz="rejestracja">Nie mam konta</button>
+      </form>
+
+      <form id="rejestracja" hidden>
+        <h2>Załóż konto</h2>
+        <input name="login" placeholder="Login" minlength="3" maxlength="20" required>
+        <input name="haslo" type="password" placeholder="Hasło (min. 6 znaków)" minlength="6" required>
+        <input name="imie" placeholder="Imię" minlength="2" maxlength="30" required>
+        <input name="wiek" type="number" placeholder="Wiek" min="18" max="120" required>
+        <textarea name="opis" placeholder="Kilka słów o sobie" maxlength="200"></textarea>
+        <label>Zdjęcie <input name="plik" type="file" accept="image/*" required></label>
+        <button>Utwórz konto</button>
+        <button type="button" class="link" data-pokaz="logowanie">Mam już konto</button>
+      </form>
+    </section>
+
+    <!-- Aplikacja po zalogowaniu -->
+    <section id="aplikacja" hidden>
+      <nav>
+        <button data-widok="odkrywaj">Odkrywaj</button>
+        <button data-widok="pary">Pary</button>
+        <button id="wyloguj" class="link">Wyloguj</button>
+      </nav>
+
+      <div id="odkrywaj">
+        <article id="karta" hidden>
+          <img id="karta-zdjecie" alt="Ukryte zdjęcie" draggable="false">
+          <h2 id="karta-imie"></h2>
+          <p id="karta-opis"></p>
+        </article>
+        <p id="pusto" hidden>Nie ma więcej profili. Zajrzyj później.</p>
+        <div id="przyciski">
+          <button id="nie" class="drugi">✕ Pomiń</button>
+          <button id="tak">♥ Lubię</button>
+        </div>
+      </div>
+
+      <div id="pary" hidden><ul id="lista"></ul></div>
+
+      <div id="czat" hidden>
+        <header>
+          <img id="czat-zdjecie" alt="Zdjęcie rozmówcy">
+          <div><h2 id="czat-imie"></h2><p id="czat-postep"></p></div>
+        </header>
+        <div id="wiadomosci"></div>
+        <form id="wyslij">
+          <input name="tresc" placeholder="Napisz wiadomość" maxlength="500" autocomplete="off" required>
+          <button>Wyślij</button>
+        </form>
+      </div>
+    </section>
+
+    <p id="komunikat" role="status"></p>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

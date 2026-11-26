@@ -1,0 +1,30 @@
+:root { --tlo: #1d1630; --karta: #2b2145; --tekst: #f6f1ff; --akcent: #ff6f59; --przygaszony: #b4a8d1; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--tlo); color: var(--tekst); font-family: system-ui, sans-serif; }
+main { max-width: 420px; margin: 0 auto; padding: 20px 16px; }
+h1 { margin: 0; font-size: 2.2rem; color: var(--akcent); text-align: center; }
+h2 { margin: 8px 0; }
+.haslo-strony { margin: 4px 0 20px; text-align: center; color: var(--przygaszony); }
+form { display: flex; flex-direction: column; gap: 10px; }
+input, textarea, button { font: inherit; border-radius: 10px; border: 1px solid #4a3b70; padding: 11px 13px; }
+input, textarea { background: var(--karta); color: var(--tekst); }
+button { background: var(--akcent); color: #1d1630; border: 0; font-weight: 600; cursor: pointer; }
+button.drugi { background: var(--karta); color: var(--tekst); }
+button.link { background: none; color: var(--przygaszony); text-decoration: underline; }
+nav { display: flex; gap: 8px; margin-bottom: 16px; }
+nav .link { margin-left: auto; }
+#karta { background: var(--karta); border-radius: 18px; padding: 14px; touch-action: pan-y; cursor: grab; user-select: none; }
+#karta img { width: 100%; aspect-ratio: 1; border-radius: 12px; image-rendering: pixelated; }
+#przyciski { display: flex; gap: 10px; margin-top: 12px; }
+#przyciski button { flex: 1; }
+#lista { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+#lista button { width: 100%; display: flex; align-items: center; gap: 12px; text-align: left; }
+#lista img, #czat header img { width: 64px; height: 64px; border-radius: 12px; image-rendering: pixelated; }
+#czat header { display: flex; gap: 14px; align-items: center; }
+#czat header img { width: 130px; height: 130px; }
+#czat-postep { margin: 0; color: var(--przygaszony); }
+#wiadomosci { height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; margin: 14px 0; padding: 10px; background: #150f24; border-radius: 12px; }
+.dymek { max-width: 80%; padding: 8px 12px; border-radius: 14px; background: var(--karta); align-self: flex-start; overflow-wrap: anywhere; }
+.dymek.moj { align-self: flex-end; background: var(--akcent); color: #1d1630; }
+#komunikat { text-align: center; color: var(--akcent); min-height: 1.4em; }
